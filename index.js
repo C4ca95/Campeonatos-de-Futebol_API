@@ -69,6 +69,37 @@ const carregarPaisesDaAPI = async () => {
   }
 };
 
+// Rota para registrar usuário
+app.post('/register', (req, res) => {
+  const { email, password, confirmPassword } = req.body;
+
+  // Verificar se as senhas coincidem
+  if (password !== confirmPassword) {
+    return res.status(400).json({ message: 'As senhas não coincidem' });
+  }
+
+  const newUser = { email, password };
+
+  // Ler o arquivo usuarios.json
+  fs.readFile('usuarios.json', (err, data) => {
+    if (err && err.code !== 'ENOENT') {
+      return res.status(500).json({ message: 'Erro ao ler o arquivo' });
+    }
+
+    const users = data ? JSON.parse(data) : [];
+    users.push(newUser);
+
+    // Escrever no arquivo usuarios.json
+    fs.writeFile('usuarios.json', JSON.stringify(users, null, 2), (err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Erro ao salvar o usuário' });
+      }
+
+      res.status(200).json({ message: 'Usuário registrado com sucesso' });
+    });
+  });
+});
+
 // CRUD para Campeonatos
 app.get("/campeonatos/:campeonato_id", (req, res) => {
   const campeonato = campeonatos.find(
