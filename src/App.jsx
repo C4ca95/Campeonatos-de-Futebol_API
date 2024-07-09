@@ -1,13 +1,18 @@
-import React from 'react';
-import Login from './Login.jsx';
-import './App.css'; // Certifique-se de ter um arquivo de estilo apropriado
+import "./App.css"
+import React from "react"
 
-function App() {
-  return (
+import { Outlet } from "react-router-dom"
+
+import Navbar from "./components/Navbar"
+
+function App () {
+
+  return(
     <div className="App">
-      <Login />
+      <Navbar />
+      <Outlet />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
