@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './style/get-league-id.css'
+import './style/global.css'
 
 const GetLeagueById = () => {
   const [id, setId] = useState('');
@@ -13,25 +15,37 @@ const GetLeagueById = () => {
   };
 
   return (
-    <div>
-      <h1>Get League by ID</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder="Enter League ID"
-        />
-        <button type="submit">Fetch League</button>
-      </form>
-      {league && (
-        <div>
-          <h2>{league.league_name}</h2>
-          <p>Country: {league.country_name}</p>
+    <div className="wrapper">
+    <div className="main">
+        <div className="league-container">
+            <div className="league-header">
+                Consultar liga pelo Identificador
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className="input-group">
+                    <input
+                        type="text"
+                        className="input-field"
+                        value={id}
+                        onChange={(e) => setId(e.target.value)}
+                        placeholder="Insira o ID"
+                    />
+                </div>
+                <button type="submit" className="submit-button">Achar</button>
+            </form>
+            {league && (
+                <div className="league-info">
+                    <p>Name: {league.league_name}</p>
+                    <p>Country: {league.country_name}</p>
+                </div>
+            )}
         </div>
-      )}
     </div>
+</div> 
+
   );
 };
+
+
 
 export default GetLeagueById;

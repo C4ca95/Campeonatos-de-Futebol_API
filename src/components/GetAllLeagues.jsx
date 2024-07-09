@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './style/get-all-leagues.css'
+import './style/global.css'
 
 const GetAllLeagues = () => {
   const [leagues, setLeagues] = useState([]);
@@ -26,18 +28,20 @@ const GetAllLeagues = () => {
   };
 
   return (
-    <div>
-      <h1>All Leagues</h1>
-      <button onClick={handleRebase}>Rebase Data</button>
-      {message && <p>{message}</p>}
-      <ul>
-        {leagues.map(league => (
-          <li key={league.league_key}>
-            {league.league_key} - {league.league_name} - {league.country_name}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <div className="wrapper">
+            <div className="main">
+                <div className="leagues-container">
+                  <button onClick={handleRebase} className="rebase-button">Restaurar Dados</button>
+                    {leagues.map((league, index) => (
+                        <div key={league.league_key} className="league-item">
+                            <div className="league-info">
+                                {league.league_key} - {league.league_name} - {league.country_name}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
   );
 };
 

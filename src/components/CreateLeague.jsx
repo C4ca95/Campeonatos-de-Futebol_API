@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "./style/create-league.css"
+import './style/global.css'
 
 const CreateLeague = () => {
   const [name, setName] = useState('');
@@ -20,25 +22,43 @@ const CreateLeague = () => {
   };
 
   return (
-    <div>
-      <h1>Create League</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter League Name"
-        />
-        <input
-          type="text"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          placeholder="Enter Country Name"
-        />
-        <button type="submit">Create League</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+    <div className="wrapper">
+            <div className="main">
+                <div className="league-form-container">
+                    <div className="league-header">
+                        Criar Liga
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                className="input-field"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Insira nome da Liga"
+                                required
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                className="input-field"
+                                value={country}
+                                onChange={(e) => setCountry(e.target.value)}
+                                placeholder="Insira nome do país"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="submit-button">Criar</button>
+                    </form>
+                    {message && (
+                        <div className="success-message">
+                            {message}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
   );
 };
 

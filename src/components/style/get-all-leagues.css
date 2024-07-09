@@ -1,0 +1,76 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.rebase-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #743ae1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.rebase-button:hover {
+    background-color: #5d2ec7;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.leagues-container {
+    width: 60%;
+    max-width: 800px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+
+.league-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.league-item:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.league-info {
+    font-weight: 600;
+    color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+    .leagues-container {
+        width: 90%;
+    }
+}

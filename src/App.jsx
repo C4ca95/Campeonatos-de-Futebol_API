@@ -12,9 +12,8 @@ import Navbar from './components/Navbar';
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      <MenuPrincipal />
       <Routes>
-        <Route path="/" element={<MenuPrincipal />} />
         <Route path="/get-all-leagues" element={<GetAllLeagues />} />
         <Route path="/get-league-by-id" element={<GetLeagueById />} />
         <Route path="/update-league" element={<UpdateLeague />} />

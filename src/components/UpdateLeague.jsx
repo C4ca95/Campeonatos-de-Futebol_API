@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "./style/update-league.css"
+import './style/global.css'
 
 const UpdateLeague = () => {
   const [id, setId] = useState('');
@@ -21,31 +23,53 @@ const UpdateLeague = () => {
   };
 
   return (
-    <div>
-      <h1>Update League</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder="Enter League ID"
-        />
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter New League Name"
-        />
-        <input
-          type="text"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          placeholder="Enter New Country Name"
-        />
-        <button type="submit">Update League</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+    <div className="wrapper">
+            <div className="main">
+                <div className="update-form-container">
+                    <div className="update-header">
+                        Atualizar Liga
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                className="input-field"
+                                value={id}
+                                onChange={(e) => setId(e.target.value)}
+                                placeholder="Insira o ID"
+                                required
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                className="input-field"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Insira o nome da Liga"
+                                required
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                className="input-field"
+                                value={country}
+                                onChange={(e) => setCountry(e.target.value)}
+                                placeholder="Insira o País"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="submit-button">Atualizar</button>
+                    </form>
+                    {message && (
+                        <div className="success-message">
+                            {message}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
   );
 };
 
