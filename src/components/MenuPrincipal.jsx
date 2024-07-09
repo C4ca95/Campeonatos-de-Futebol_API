@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style/menu-principal.css'
-import './style/global.css'
 
 const MenuPrincipal = () => {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./style/create-league.css"
-import './style/global.css'
 
 const CreateLeague = () => {
   const [name, setName] = useState('');

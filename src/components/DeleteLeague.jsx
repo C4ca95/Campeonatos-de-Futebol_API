@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./style/delete-league.css"
-import './style/global.css'
 
 const DeleteLeague = () => {
   const [id, setId] = useState('');

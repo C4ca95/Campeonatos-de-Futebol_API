@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './style/get-all-leagues.css'
-import './style/global.css'
 
 const GetAllLeagues = () => {
   const [leagues, setLeagues] = useState([]);
