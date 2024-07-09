@@ -23,7 +23,7 @@ const GetAllLeagues = () => {
         setMessage(data.message);
         fetchLeagues(); // Atualiza a lista de ligas após o rebase
       })
-      .catch(error => console.error('Error rebasing data:', error));
+      .catch(error => console.error('Erro ao restaurar dados:', error));
   };
 
   return (

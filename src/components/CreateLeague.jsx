@@ -16,8 +16,8 @@ const CreateLeague = () => {
       body: JSON.stringify({ league_name: name, country_name: country })
     })
     .then(response => response.json())
-    .then(data => setMessage('League created successfully'))
-    .catch(error => setMessage('Error creating league:', error));
+    .then(data => setMessage('Liga criado com Sucesso!'))
+    .catch(error => setMessage('Erro ao criar liga:', error));
   };
 
   return (

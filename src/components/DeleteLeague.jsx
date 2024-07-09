@@ -11,8 +11,8 @@ const DeleteLeague = () => {
       method: 'DELETE',
     })
     .then(response => response.json())
-    .then(data => setMessage('League deleted successfully'))
-    .catch(error => setMessage('Error deleting league:', error));
+    .then(data => setMessage('Liga deletada com sucesso!'))
+    .catch(error => setMessage('Erro ao deletar liga:', error));
   };
 
   return (

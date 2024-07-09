@@ -17,8 +17,8 @@ const UpdateLeague = () => {
       body: JSON.stringify({ league_name: name, country_name: country })
     })
     .then(response => response.json())
-    .then(data => setMessage('League updated successfully'))
-    .catch(error => setMessage('Error updating league:', error));
+    .then(data => setMessage('Liga Atualizada com Sucesso'))
+    .catch(error => setMessage('Erro atulizando liga:', error));
   };
 
   return (
