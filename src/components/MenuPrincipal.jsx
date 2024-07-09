@@ -5,8 +5,10 @@ import Navbar from "./Navbar";
 
 const MenuPrincipal = () => {
     return (
-        <Navbar/>
-        
+        <div>
+            <button className="carregardados">Carregar dados</button>
+            <Navbar/>
+        </div>        
     )
 }
 
