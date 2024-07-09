@@ -1,20 +1,19 @@
-import React from "react"
-import "./style/CreateUser.css";
-import { Link } from "react-router-dom";
-import "./style/navbar.css"
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    return (
-        <nav>
-            <div className="flex">
-            <Link to="/">Página Inicial</Link>
-            <Link to="consultar">Consultar Ligas</Link>
-            <Link to="alterar">Alterar Liga</Link>
-            <Link to="adicionar">adicionar ligas</Link>
-            <Link to="deletar">deletar ligas</Link>
-            </div>
-        </nav>
-    )
-}
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/get-all-leagues">Get All Leagues</Link></li>
+        <li><Link to="/get-league-by-id">Get League by ID</Link></li>
+        <li><Link to="/update-league">Update League</Link></li>
+        <li><Link to="/create-league">Create League</Link></li>
+        <li><Link to="/delete-league">Delete League</Link></li>
+      </ul>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

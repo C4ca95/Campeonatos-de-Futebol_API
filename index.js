@@ -1,21 +1,22 @@
 const express = require("express");
 const axios = require("axios");
 const fs = require("fs");
+const cors = require("cors"); // Adicione esta linha
 const app = express();
 const port = 3000;
 
 const API_BASE_URL = "https://apiv2.allsportsapi.com/football";
-const API_KEY =
-  "8ac74ecc6654fbb7e6c6569f5600da5e61f9bfd640b912e24dbacaad8a311efb";
+const API_KEY = "8ac74ecc6654fbb7e6c6569f5600da5e61f9bfd640b912e24dbacaad8a311efb";
 
-// middleware para dividir as requisições
+// Middleware para dividir as requisições
 app.use(express.json());
+app.use(cors()); // Adicione esta linha
 
-//listas para guardar as reqs
+// listas para guardar as requisições
 let campeonatos = [];
 let paises = [];
 
-// configuração do axios
+// Configuração do axios
 const api = axios.create({
   baseURL: API_BASE_URL,
   params: {
@@ -23,7 +24,7 @@ const api = axios.create({
   },
 });
 
-//  salva um arquivo com as listas
+// Salva um arquivo com as listas
 const salvarDados = () => {
   const data = { campeonatos, paises };
   fs.writeFileSync("dados.json", JSON.stringify(data, null, 2));
@@ -39,7 +40,7 @@ const carregarDados = () => {
   }
 };
 
-// faz requisição para API e retorna os campeonatos
+// Faz requisição para API e retorna os campeonatos
 const carregarCampeonatosDaAPI = async () => {
   try {
     const response = await api.get("/", {
@@ -54,7 +55,7 @@ const carregarCampeonatosDaAPI = async () => {
   }
 };
 
-// faz requisição para API e retorna os países
+// Faz requisição para API e retorna os países
 const carregarPaisesDaAPI = async () => {
   try {
     const response = await api.get("/", {
@@ -250,7 +251,6 @@ app.delete("/paises/:country_key", async (req, res) => {
 app.post("/rebase", async (req, res) => {
   try {
     await carregarCampeonatosDaAPI();
-    await carregarPaisesDaAPI();
     salvarDados();
     res
       .status(200)
